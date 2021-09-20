@@ -1,0 +1,90 @@
+<div *ngIf="isLoading" style="text-align: center;">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+
+<div *ngIf="!isLoading">
+  <div class="row mb-5">
+    <h2>In Theatres</h2>
+    <div class="col">
+      <ngx-slick-carousel class="carousel" #galleryOne="slick-carousel" [config]="slideConfig"
+        (init)="slickInit($event)" (breakpoint)="breakpoint($event)">
+
+        <div ngxSlickItem *ngFor="let movie of movieDetail" class="slide">
+          <div class="card my-5 mx-3">
+            <img src="{{ movie.details.Poster }}" alt="Movie Poster Image" class="card-img-top img-fluid">
+            <div class="card-body">
+              <span class="text-left mb-3"><i class="fas fa-star"></i> {{ movie.details.imdbRating }} <span
+                  class="badge badge-secondary ml-2">IMDB</span></span> <br>
+              <a class="card-title text-light" (click)="onTrailerClick(movie)">{{ movie.details.Title }}</a>
+              <ul class="list-group list-group-flush">
+                <!-- <li class="list-group-item"><span class="text-muted">Cast -</span> {{ movie.Actors }}</li> -->
+                <li class="list-group-item"><span class="text-muted">Released in -</span> {{ movie.details.Year }}</li>
+                <li class="list-group-item text-center">
+                  <button class="btn btn-outline-light" (click)="onTrailerClick(movie)"><i class="fas fa-play"></i>
+                    Trailer</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </ngx-slick-carousel>
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    <h2>Top Rated <small class="text-muted">by Tmdb</small></h2>
+    <div class="col">
+      <ngx-slick-carousel class="carousel" #galleryOne="slick-carousel" [config]="slideConfig"
+        (init)="slickInit($event)" (breakpoint)="breakpoint($event)">
+
+        <div ngxSlickItem *ngFor="let movie of topRatedmovieDetail" class="slide">
+          <div class="card my-5 mx-3">
+            <img src="{{ movie.details.Poster }}" alt="Movie Poster Image" class="card-img-top img-fluid">
+            <div class="card-body">
+              <span class="text-left mb-3"><i class="fas fa-star"></i> {{ movie.details.imdbRating }} <span
+                  class="badge badge-secondary ml-2">IMDB</span></span> <br>
+              <a class="card-title text-light" (click)="onTrailerClick(movie)">{{ movie.details.Title }}</a>
+              <ul class="list-group list-group-flush">
+                <!-- <li class="list-group-item"><span class="text-muted">Cast -</span> {{ movie.Actors }}</li> -->
+                <li class="list-group-item"><span class="text-muted">Released in -</span> {{ movie.details.Year }}</li>
+                <li class="list-group-item text-center">
+                  <button class="btn btn-outline-light" (click)="onTrailerClick(movie)"><i class="fas fa-play"></i>
+                    Trailer</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </ngx-slick-carousel>
+    </div>
+  </div>
+
+
+  <div class="row mb-5">
+    <h2>Popular <small class="text-muted">by Tmdb</small></h2>
+    <div class="col">
+      <ngx-slick-carousel class="carousel" #galleryOne="slick-carousel" [config]="slideConfig"
+        (init)="slickInit($event)" (breakpoint)="breakpoint($event)">
+
+        <div ngxSlickItem *ngFor="let movie of popularmovieDetail" class="slide">
+          <div class="card my-5 mx-3">
+            <img src="{{ movie.details.Poster }}" alt="Movie Poster Image" class="card-img-top img-fluid">
+            <div class="card-body">
+              <span class="text-left mb-3"><i class="fas fa-star"></i> {{ movie.details.imdbRating }} <span
+                  class="badge badge-secondary ml-2">IMDB</span></span> <br>
+              <a class="card-title text-light" (click)="onTrailerClick(movie)">{{ movie.details.Title }}</a>
+              <ul class="list-group list-group-flush">
+                <!-- <li class="list-group-item"><span class="text-muted">Cast -</span> {{ movie.Actors }}</li> -->
+                <li class="list-group-item"><span class="text-muted">Released in -</span> {{ movie.details.Year }}</li>
+                <li class="list-group-item text-center">
+                  <button class="btn btn-outline-light" (click)="onTrailerClick(movie)"><i class="fas fa-play"></i>
+                    Trailer</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </ngx-slick-carousel>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="container">
+  <h2 class="mb-4">Photo Gallery</h2>
+  <div class="row mb-5" style="background-color: rgb(255, 255, 255, 0.08);">
+    <div class="col-md-2 my-2" *ngFor="let imgPath of imgArray">
+      <a href="#"><img src="{{ imgPath }}" alt="" class="img-fluid"></a>
+    </div>
+  </div>
+</div>

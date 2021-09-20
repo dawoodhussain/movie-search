@@ -1,0 +1,29 @@
+.fa-chevron-circle-right {
+  color: #FB4F93;
+}
+
+.fa-star {
+  color: #bd871f;
+}
+
+
+.cast {
+  color: #00E6E4;
+}
+
+#collapse1 h3 {
+  color: #bd871f;
+  border-left: 5px solid #FB4F93;
+  padding-left: 1rem;
+}
+
+.img-fluid {
+  height: 400px;
+  width: 100%;
+}
+
+@media screen and (max-width: 576px) {
+.mr-sm-1 {
+  margin-right: 0.25rem !important;
+}
+}

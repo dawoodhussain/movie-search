@@ -1,0 +1,20 @@
+npm new movie-search
+
+npm install @angular/http@latest
+
+npm i angular-ng-autocomplete
+
+--to run localhost on mobile
+ng serve --host 0.0.0.0
+
+
+#bd871f - yellow: highlight
+#00E6E4 - blue: font color
+#000000 - black: background color
+#FB4F93 - pink: any other color
+
+
+--to install angular slick view_carousel
+ npm install jquery --save
+ npm install slick-carousel --save
+ npm install ngx-slick-carousel --save

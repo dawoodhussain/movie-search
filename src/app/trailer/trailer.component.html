@@ -1,0 +1,160 @@
+<div *ngIf="isLoading" style="text-align: center;">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+
+<div *ngIf="error === ''" style="background-color: #1f1f1f;">
+  <div class="container">
+    <div class="row text-light pt-3 pb-1">
+      <div class="col-md-6">
+        <h2>{{ movieName.details.Title }}</h2>
+        <span>{{ movieName.details.Year }}</span> . <span>{{ movieName.details.Rated }}</span> . <span>{{
+          movieName.details.Runtime }}</span>
+      </div>
+      <div class="col-md-5 text-right">
+        <div class="row d-flex flex-column">
+          <div class="col-md-6 ml-auto">
+            <span>IMDB Rating</span>
+          </div>
+          <div class="col-md-6 ml-auto">
+            <div class="row">
+              <div class="col">
+                <i class="fas fa-star fa-2x"></i>
+                <span> <strong> {{ movieName.details.imdbRating }}</strong> / 10</span> <br>
+                <span>{{ movieName.details.imdbVotes }} Votes</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-11">
+        <div class="panel-group">
+          <div class="panel panel-default text-light p-2 my-2"
+            style="background-color: rgba(255, 255, 255, 0.08);border-radius: 0.3rem;">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" href="#collapse1" class="cast" style="text-decoration: none;">
+                  <i class="fas fa-chevron-circle-right"></i> Cast & Crew Info</a>
+              </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse">
+              <!-- <div class="panel-body">Panel Body</div>
+            <div class="panel-footer">Panel Footer</div> -->
+              <div class="row">
+                <div class="col-md-6">
+                  <table class="table">
+                    <tr>
+                      <td class="text-muted">Actors:</td>
+                      <td>{{movieName.details.Actors}}</td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted">Director:</td>
+                      <td>{{ movieName.details.Director }}</td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted">Genre:</td>
+                      <td><span class="badge badge-light mr-2 p-2" *ngFor="let genre of movieName.details.Genre.split(',')">
+                        {{genre}}
+                      </span></td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted">Writer:</td>
+                      <td>{{ movieName.details.Writer }}</td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted">Awards:</td>
+                      <td>{{ movieName.details.Awards }}</td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted">BoxOffice:</td>
+                      <td>{{ movieName.details.BoxOffice }}</td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted">Type:</td>
+                      <td>{{ movieName.details.Type }}</td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="col-md-6">
+                  <h3>Description</h3>
+                  <p style="line-height: 2rem;">
+                    {{ movieName.description }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row text-light mb-4 no-gutters">
+      <div class="col-md-3 d-none d-md-block mr-1 loading-iframe">
+        <img src="{{ movieName.details.Poster }}" alt="Movie Poster Image" class="img-fluid"
+          style="width:100%; height: 400px;">
+      </div>
+      <div class="col-md-6">
+        <iframe width="100%" height="400px" src="https://www.youtube.com/embed/tgbNymZ7vqY"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe>
+      </div>
+      <div class="col-md-2">
+        <div class="d-flex flex-lg-column flex-md-row ml-1" style="width: 100%; height: 100%;">
+          <div class="px-1 py-5 mb-lg-1 mr-sm-1"
+            style="width: 100%; height: 100%;; background-color: rgba(255, 255, 255, 0.08);">
+            <div class="text-center">
+              <i class="fab fa-youtube fa-2x"></i> <br>
+              <button (click)="onVideoBtnClick()" class="btn btn-sm btn-outline-light" style="font-size: 0.8rem;">
+                MORE VIDEOS</button>
+            </div>
+          </div>
+          <div class="px-1 py-5 mb-lg-1"
+            style="width: 100%; height: 100%;; background-color: rgba(255, 255, 255, 0.08);">
+            <div class="text-center">
+              <i class="far fa-images fa-2x"></i> <br>
+              <button (click)="onPhotoBtnClick()" class="btn btn-sm btn-outline-light" style="font-size: 0.8rem;">
+                MOVIE PHOTOS</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Here cast cards needs to go -->
+<div *ngIf="error === ''">
+  <h2 class="my-5" style="color: #00E6E4;border-left: 5px solid #FB4F93;padding-left: 1rem;">Top Cast</h2>
+  <div class="row mb-5 text-dark" *ngFor="let celeb of celebs">
+    <div class="col-md-4 d-flex flex-column pb-3" style="background-color: #fff">
+      <div class="my-3">
+        <img src="https://image.tmdb.org/t/p/original{{ celeb.profile_path }}" alt="{{celeb.name}} Image" class="img-fluid">
+      </div>
+      <div class="mb-1">
+        <h2 style="color: #FB4F93;">{{celeb.name}}</h2>
+      </div>
+      <div>
+        <strong>Born: </strong>
+        <span>
+          <span style="color: #797739;">{{celeb.birthday | date: 'mediumDate'}}</span> in <u>{{celeb.place_of_birth}}</u>
+        </span>
+      </div>
+    </div>
+    <div class="col-md-8  pb-3"  style="background-color: rgba(255, 255, 255, 0.08);">
+      <h4 class="my-3" style="color: #bd871f;">Biography</h4>
+      <h5>{{ celeb.known_for_department == "Acting" ? "Actor" : "Director" }}</h5>
+      <p style="line-height: 1.8rem; word-spacing: 1px;color: #BAB86C;">{{celeb.biography}}</p>
+    </div>
+  </div>
+</div>
+
+<div class="row" *ngIf="error !== ''">
+  <div class="col">
+    <p class="display-4 text-center" style="color: skyblue;">
+      <i class="fas fa-info-circle"></i> {{ error }}
+    </p>
+  </div>
+</div>
+
