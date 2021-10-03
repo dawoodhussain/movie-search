@@ -3,6 +3,7 @@ import { Movie } from '../../model/movie.model';
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { map } from "rxjs/operators";
+import { Apikeys } from "../apiconfig";
 
 export interface moviesArray {
   Search: Movie[];
@@ -11,7 +12,8 @@ export interface moviesArray {
 
 @Injectable({ providedIn: 'root' })
 export class OmdbService {
-  private API_KEY: string = 'd9835cc5';
+  private API_KEY: string = Apikeys.OMDB_API_KEY;
+
 
   constructor(private http: HttpClient) {}
 

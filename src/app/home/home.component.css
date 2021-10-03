@@ -9,7 +9,6 @@
 }
 
 .card:hover {
-  transform: scale(1.1);
   -webkit-box-shadow: 0 0 5px #fff;
   box-shadow: 0 0 10px #fff;
 }
@@ -68,6 +67,26 @@ h2 {
   border-left: 5px solid #FB4F93;
   padding-left: 1rem;
   margin-left: 1rem;
+}
+
+.btn-info {
+  transition-duration: 0.4s;
+}
+.btn-info:active{
+  background:olive;
+}
+
+.btn-info:focus{
+  background:olive;
+}
+
+.homebg {
+  background: url('../../assets/images/home-banner.jpg');
+  z-index: -1;
+}
+
+.homebg-overlay {
+  background: rgba(0, 0, 0, 0.6);
 }
 
 @media screen and (max-width: 472px) {

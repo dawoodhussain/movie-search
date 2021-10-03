@@ -1,3 +1,4 @@
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,6 +13,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
 import { MovieFullDetails } from './model/movie-details.model';
 import { VideoGalleryComponent } from './video-gallery/video-gallery.component';
+import { WatchlistComponent } from './watchlist/watchlist.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { VideoGalleryComponent } from './video-gallery/video-gallery.component';
     TrailerComponent,
     ErrorPageComponent,
     PhotoGalleryComponent,
-    VideoGalleryComponent
+    VideoGalleryComponent,
+    WatchlistComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,

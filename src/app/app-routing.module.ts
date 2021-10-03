@@ -1,3 +1,4 @@
+import { WatchlistComponent } from './watchlist/watchlist.component';
 import { TrailerComponent } from './trailer/trailer.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -9,7 +10,12 @@ import { VideoGalleryComponent } from './video-gallery/video-gallery.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  {path: 'movietrailer/:movieId', component: TrailerComponent, runGuardsAndResolvers: 'always'},
+  { path: 'watchlist', component: WatchlistComponent },
+  {
+    path: 'movietrailer/:movieId',
+    component: TrailerComponent,
+    runGuardsAndResolvers: 'always',
+  },
   { path: 'photogallery/:movieId', component: PhotoGalleryComponent },
   { path: 'videogallery/:movieId', component: VideoGalleryComponent },
   { path: 'not-found', component: ErrorPageComponent },

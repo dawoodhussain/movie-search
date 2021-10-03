@@ -1,0 +1,28 @@
+h2 {
+  color: #00e6e4;
+  border-left: 5px solid #fb4f93;
+  padding-left: 1rem;
+  margin-left: 1rem;
+}
+
+.fas.fa-star {
+  color: #f5c518;
+}
+
+.list-group-item:hover {
+  background: #ccfffe !important;
+  background-size: cover;
+}
+
+.list-group{
+  display:inline-block;
+  width: 80%;
+}
+
+.watchlistbg {
+  background: url('../../assets/images/watchlist-banner.jpg');
+}
+
+.watchlistbg-overlay {
+  background: rgba(0, 0, 0, 0.8);
+}

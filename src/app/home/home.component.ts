@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
   sortedmovieDetail: MovieDetail[] = [];
   movieSelected: MovieFullDetails;
   //upComingMoviesImdbId: any[];
+  wlMovies: any = [];
 
   isLoading: boolean;
 
@@ -186,5 +187,20 @@ export class HomeComponent implements OnInit {
     // });
 
     this.router.navigate(['../movietrailer', movieName.details.imdbID], {relativeTo: this.route});
+  }
+
+  onWatchlistClick(movieName: any) {
+    //console.log(movieName);
+    if(sessionStorage.getItem('watchlisted') != null) {
+      this.wlMovies = JSON.parse(sessionStorage.getItem('watchlisted'));
+
+      for(const key in this.wlMovies) {
+        if(this.wlMovies[key].tmdb_id == movieName.tmdb_id) {
+          return;
+        }
+      }
+    }
+    this.wlMovies.push(movieName);
+    sessionStorage.setItem('watchlisted', JSON.stringify(this.wlMovies));
   }
 }

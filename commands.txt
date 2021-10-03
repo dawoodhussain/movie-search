@@ -7,6 +7,9 @@ npm i angular-ng-autocomplete
 --to run localhost on mobile
 ng serve --host 0.0.0.0
 
+--way to access files
+npm i @types/node
+
 
 #bd871f - yellow: highlight
 #00E6E4 - blue: font color

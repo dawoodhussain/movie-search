@@ -98,11 +98,11 @@ export class TrailerComponent implements OnInit {
   }
 
   onVideoBtnClick() {
-    this.router.navigate(['../videogallery', this.movieName.tmdb_id]);
+    this.router.navigate(['/videogallery', this.movieName.tmdb_id]);
   }
 
   onPhotoBtnClick() {
-    this.router.navigate(['../photogallery', this.movieName.tmdb_id]);
+    this.router.navigate(['/photogallery', this.movieName.tmdb_id]);
   }
 
   LoadCelebDetails(name: string) {

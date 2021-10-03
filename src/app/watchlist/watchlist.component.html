@@ -1,0 +1,30 @@
+<h2 class="mb-4">Your Watchlist</h2>
+
+<h1 *ngIf="!movieSelected" class="mb-5 text-center text-warning">No Movies Watchlisted!!</h1>
+
+
+<div class="watchlistbg">
+  <div class="watchlistbg-overlay">
+    <div class="container">
+      <div class="list-group my-5" *ngIf="movieSelected">
+        <div class="row list-group-item list-group-item-action d-flex" *ngFor="let movie of wlMovies; let i = index">
+          <div class="col-4">
+            <img [src]="movie.details.Poster" alt="Movie Image" style="width:6rem; height: 6rem;" />
+          </div>
+          <div class="col-6">
+            <strong><a (click)="onClick(movie)" [routerLink]="">{{movie.details.Title}}
+                <i>({{movie.details.Year}})</i></a></strong> <br>
+
+            <span class="badge badge-info mr-3">{{movie.details.Type}}</span>
+            <span><i class="fas fa-star"></i> {{movie.details.imdbRating}}</span> <br>
+            <span>Runtime: {{movie.details.Runtime}}</span>
+          </div>
+          <div class="col-2 text-center">
+            <button role="button" type="button" (click)="onDelete(i)" class="btn btn-info"><i
+                class="fas fa-times fa-2x text-center text-danger"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

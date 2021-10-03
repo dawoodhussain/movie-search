@@ -36,7 +36,8 @@ export class AppComponent implements OnInit, OnDestroy {
       });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   getServerResponse(event) {
     this.isLoadingResult = true;

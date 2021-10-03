@@ -1,10 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark py-2" id="main-nav">
   <div class="container-fluid">
     <a href="#home" class="navbar-brand">
-      <!-- <h4>
-        <span style="color: #bd871f;">MOV<span style="color: #FB4F93;">IE </span></span>
-        <span style="color: #00E6E4;">SEAR<span style="color: #FB4F93;">CH</span></span>
-      </h4> -->
       <h3 class="title" data-text="moviesearch">moviesearch</h3>
     </a>
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -12,6 +8,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav ml-auto">
+        <a routerLink="/watchlist" class="nav-link watchlist"><i class="fas fa-plus"></i> Watchlist</a>
         <li class="nav-item">
           <a href="#" class="nav-link">About</a>
         </li>
@@ -25,7 +22,6 @@
   <div class="row">
     <div class="col">
       <div class="ng-autocomplete mx-auto">
-        <!-- <label for="SearchMovie" class="text-white">Search Movie</label> -->
         <ng-autocomplete [data]="data" [searchKeyword]="keyword" (selected)='selectEvent($event)'
           (inputChanged)='getServerResponse($event)' (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate"
           (inputCleared)="searchCleared()" [notFoundTemplate]="notFoundTemplate" [debounceTime]="600"

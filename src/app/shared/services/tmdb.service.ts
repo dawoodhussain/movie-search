@@ -1,12 +1,11 @@
-// https://api.themoviedb.org/3/movie/now_playing?api_key=f51bc8b5b575d77f0977ddf87236cd5f&language=en-US&page=1
-
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { Apikeys } from "../apiconfig";
 
 @Injectable({ providedIn: 'root' })
 export class TmdbService {
-  private API_KEY: string = 'f51bc8b5b575d77f0977ddf87236cd5f';
+  private API_KEY: string = Apikeys.TMDB_API_KEY;
   upComingMovieIdList: any[];
 
   constructor(private http: HttpClient) {}

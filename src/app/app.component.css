@@ -49,6 +49,10 @@ hr {
   margin: 0 auto;;
 }
 
+.watchlist {
+  color: #00E6E4 !important;
+}
+
 
 /* @media screen and (max-width: 768px) {
   .ng-autocomplete {

@@ -2,10 +2,11 @@ import { YoutubeVideoModel } from '../../model/youtube-api.model';
 import { map } from 'rxjs/operators';
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Apikeys } from "../apiconfig";
 
 @Injectable({providedIn: 'root'})
 export class YoutubeApiService {
-  private API_KEY: string = 'AIzaSyA32CSf9Wu6cotEeqfOxcd3VsDYnLQIYAM';
+  private API_KEY: string = Apikeys.YOUTUBE_API_KEY;
 
   constructor(private http: HttpClient) {}
 
