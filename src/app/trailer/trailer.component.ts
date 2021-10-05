@@ -8,6 +8,7 @@ import { throwError } from 'rxjs';
 import { MovieFullDetails } from '../model/movie-details.model';
 import { MovieDetailService } from '../shared/services/movie-details.service';
 import { TmdbService } from '../shared/services/tmdb.service';
+import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 
 interface trailerDetails {
   videoId: string;
@@ -37,6 +38,7 @@ export class TrailerComponent implements OnInit {
     private youtubeService: YoutubeApiService,
     private tmdbService: TmdbService,
     private mdService: MovieDetailService,
+    private sanitizer: DomSanitizer,
     private router: Router) {
       // if(this.router.getCurrentNavigation().extras.state) {
       //   this.routeState = this.router.getCurrentNavigation().extras.state;
@@ -62,7 +64,7 @@ export class TrailerComponent implements OnInit {
         this.movieName = this.mdService.getMovieDetails();
 
         if(!this.movieName) {
-          console.log("movie details is empty. trying to fetch from local storage");
+          console.log("movie details is empty. trying to fetch from session storage");
           this.movieName = JSON.parse(sessionStorage.getItem('movieData'));
         }
 
@@ -74,25 +76,27 @@ export class TrailerComponent implements OnInit {
           this.LoadCelebDetails(name.trim());
         }
 
-        console.log(this.celebs);
+        // console.log(this.celebs);
 
+        // console.log(this.movieName);
+        // console.log(this.movieName.details.Title);
 
-    // this.youtubeService.getMovieTrailer(this.movieName)
-    //  .pipe(map(respData => {
-    //    for(const key in respData) {
-    //     this.movieTrailer.videoId = respData[key].id.videoId;
-    //     this.movieTrailer.title = respData[key].snippet.title;
-    //    }
-    //  })
-    //  )
-    //  .subscribe(
-    //    resp => {},
-    //    err => {
-    //     if(err.error.error.errors[0].reason == "quotaExceeded") {
-    //       this.error = "Youtube Data API quota exceeded for today.. :("
-    //     }
-    //    }
-    //  );
+    this.youtubeService.getMovieTrailer(this.movieName.details.Title)
+     .pipe(map(respData => {
+       for(const key in respData) {
+        this.movieTrailer.videoId = respData[key].id.videoId;
+        this.movieTrailer.title = respData[key].snippet.title;
+       }
+     })
+     )
+     .subscribe(
+       resp => {},
+       err => {
+        if(err.error.error.errors[0].reason == "quotaExceeded") {
+          this.error = "Youtube Data API quota exceeded for today.. :("
+        }
+       }
+     );
 
     this.isLoading = false;
   }
@@ -118,5 +122,12 @@ export class TrailerComponent implements OnInit {
         this.celebs.push(res);
       })
     })
+  }
+
+  trailerURL() {
+    const url = "https://www.youtube.com/embed/" + this.movieTrailer.videoId;
+    console.log(url);
+
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 }

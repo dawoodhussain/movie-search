@@ -18,7 +18,7 @@ export class OmdbService {
   constructor(private http: HttpClient) {}
 
   getMovies(searchTerm: string, page: string) {
-    return this.http.get<moviesArray>('http://www.omdbapi.com/?', {
+    return this.http.get<moviesArray>('https://www.omdbapi.com/?', {
       params: new HttpParams().set('apikey', this.API_KEY).set('s', searchTerm).set('page', page)
     })
     .pipe(map(responseData  => {
@@ -30,7 +30,7 @@ export class OmdbService {
   }
 
   getMovieById(id: string) {
-    return this.http.get<MovieDetail>('http://www.omdbapi.com/?', {
+    return this.http.get<MovieDetail>('https://www.omdbapi.com/?', {
       params: new HttpParams().set('apikey', this.API_KEY).set('i', id)
     });
   }
