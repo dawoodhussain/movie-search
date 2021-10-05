@@ -16,13 +16,11 @@ import { MovieFullDetails } from '../model/movie-details.model';
 export class HomeComponent implements OnInit {
   @ViewChild('galleryOne') galleryOne: SlickCarouselComponent;
 
-  // movieDetail: MovieDetail[] = [];
   movieDetail: MovieFullDetails[] = [];
   topRatedmovieDetail: MovieFullDetails[] = [];
   popularmovieDetail: MovieFullDetails[] = [];
   sortedmovieDetail: MovieDetail[] = [];
   movieSelected: MovieFullDetails;
-  //upComingMoviesImdbId: any[];
   wlMovies: any = [];
 
   isLoading: boolean;
@@ -73,32 +71,6 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // this.omdbService
-    //   .getMovies('war', '1')
-    //   .pipe(
-    //     map((respData) => {
-    //       for (let movie of respData) {
-    //         //this.getMoviebyId(movie.imdbID);
-    //       }
-    //     })
-    //   )
-    //   .subscribe();
-
-    // this.omdbService
-    //   .getMovies('war', '2')
-    //   .pipe(
-    //     map((respData) => {
-    //       for (let movie of respData) {
-    //         //console.log(movie);
-
-    //         //this.getMoviebyId(movie.imdbID);
-    //       }
-    //     })
-    //   )
-    //   .subscribe();
-
-    //this.sortMoviesbyImdbRating();
-
     this.InitiateDataRequest();
 
   }
@@ -160,32 +132,8 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  // sortMoviesbyImdbRating() {
-  //   // console.log(this.movieDetail);
-  //   this.movieDetail.sort((a, b) => {
-  //     const imdb1 = +a.imdbRating;
-  //     const imdb2 = +b.imdbRating;
-
-  //     if (imdb1 > imdb2) {
-  //       return 1;
-  //     }
-  //     if (imdb1 < imdb2) {
-  //       return -1;
-  //     }
-  //     return 0;
-  //   });
-  //   // console.log(this.movieDetail);
-  // }
-
   onTrailerClick(movieName: any) {
     this.mdService.setMovieDetails(movieName);
-      //this.movieSelected = this.mdService.getMovieDetails();
-
-    //   this.router.navigate(['../movietrailer', movieName.details.imdbID], {
-    //   relativeTo: this.route,
-    //   state: { movieDetails: JSON.stringify(movieName) },
-    // });
-
     this.router.navigate(['../movietrailer', movieName.details.imdbID], {relativeTo: this.route});
   }
 

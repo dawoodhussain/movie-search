@@ -21,18 +21,24 @@
   <app-root></app-root>
 
   <!-- FOOTER -->
-  <footer id="main-footer" class="py-4 text-dark">
+  <footer id="main-footer" class="pt-4 text-dark">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 text-left">
-          <p class="lead">
-            Design by - <a href="#" class="text-primary">Dawood Hussain</a>
+        <div class="col-md-4 text-left">
+          <p>
+            Design by - <a href="https://dawood.netlify.app/" class="text-white">Dawood Hussain</a>
           </p>
         </div>
-        <div class="col-md-6 ml-auto text-right">
-          <p class="lead">
-            Copyright &copy;
-            <span id="year"></span>
+        <div class="col-md-4 text-center">
+          <p>
+            <small>Best viewed in <strong>CHROME</strong> browser.</small> <br>
+            <small>Not supported for <strong>IE11</strong> browser</small>
+          </p>
+        </div>
+        <div class="col-md-4 ml-auto text-right">
+          <p>
+            No Copyright &copy;
+            <span id="year" class="text-white"></span>
           </p>
         </div>
       </div>
@@ -51,6 +57,10 @@
   <script>
     // Get the current year for the copyright
     $('#year').text(new Date().getFullYear());
+
+    $('.navbar-nav>li>a').on('click', function () {
+      $('.navbar-collapse').collapse('hide');
+    });
   </script>
 </body>
 

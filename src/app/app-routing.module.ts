@@ -6,11 +6,13 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { HomeComponent } from './home/home.component';
 import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
 import { VideoGalleryComponent } from './video-gallery/video-gallery.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'watchlist', component: WatchlistComponent },
+  { path: 'about', component: AboutComponent },
   {
     path: 'movietrailer/:movieId',
     component: TrailerComponent,

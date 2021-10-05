@@ -5,9 +5,9 @@
 
 <div class="watchlistbg">
   <div class="watchlistbg-overlay">
-    <div class="container">
+    <div class="container text-center">
       <div class="list-group my-5" *ngIf="movieSelected">
-        <div class="row list-group-item list-group-item-action d-flex" *ngFor="let movie of wlMovies; let i = index">
+        <div class="row list-group-item list-group-item-action d-sm-flex" *ngFor="let movie of wlMovies; let i = index">
           <div class="col-4">
             <img [src]="movie.details.Poster" alt="Movie Image" style="width:6rem; height: 6rem;" />
           </div>

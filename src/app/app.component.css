@@ -1,4 +1,12 @@
 
+#navbarCollapse {
+  text-align: center;
+}
+
+.nav-item:hover {
+  background-color: cadetblue;
+}
+
 .title {
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -54,8 +62,8 @@ hr {
 }
 
 
-/* @media screen and (max-width: 768px) {
-  .ng-autocomplete {
-    width: 100% !important;
+@media screen and (max-width: 768px) {
+  #autocompleteId {
+    margin-top: 3rem;
   }
-} */
+}

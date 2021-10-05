@@ -46,14 +46,6 @@
   margin: auto;
 }
 
-/* .slick-prev:hover, .slick-prev:focus, .slick-next:hover, .slick-next:focus {
-  height: 45px;
-  width: 40px;
-  background-color: #f5c518 !important;
-  color: #fff !important;
-  z-index: 100;
-} */
-
 .slick-prev, .slick-next {
   height: 45px !important;
   width: 40px !important;
@@ -98,5 +90,10 @@ h2 {
     transform: none !important;
     -webkit-box-shadow: 0 0 10px #fff;
   box-shadow: 0 0 10px #fff;
+  }
+
+  .list-group-item {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }

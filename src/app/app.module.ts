@@ -14,6 +14,7 @@ import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
 import { MovieFullDetails } from './model/movie-details.model';
 import { VideoGalleryComponent } from './video-gallery/video-gallery.component';
 import { WatchlistComponent } from './watchlist/watchlist.component';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { WatchlistComponent } from './watchlist/watchlist.component';
     PhotoGalleryComponent,
     VideoGalleryComponent,
     WatchlistComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
